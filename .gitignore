@@ -209,12 +209,13 @@ $RECYCLE.BIN/
 # Project-specific ignores
 # ======================
 
-# Generated data files (keep sample data)
+# Generated data files (keep original sample data)
 data/processed_*.xlsx
 data/report_*.xlsx
 data/backup_*.xlsx
 data/output/
 data/temp/
+# Keep data/invoice_data.xlsx - this is the sample data
 
 # Log files
 logs/

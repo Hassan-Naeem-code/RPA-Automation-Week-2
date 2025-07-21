@@ -26,9 +26,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
-COPY src/ ./src/
+COPY scripts/ ./scripts/
 COPY config/ ./config/
 COPY templates/ ./templates/
+COPY data/ ./data/
 COPY .env.example .env
 
 # Create necessary directories
@@ -40,7 +41,7 @@ USER app
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD python src/main.py --health-check || exit 1
+    CMD python scripts/main.py || exit 1
 
 # Default command
-CMD ["python", "src/main.py", "--help"]
+CMD ["python", "scripts/main.py"]
