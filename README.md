@@ -309,6 +309,20 @@ python scripts/create_sample_data.py
    - Metrics collection (Prometheus, Grafana)
    - Alerting (PagerDuty, Slack)
 
+## 📚 Documentation
+
+### 📊 Process Documentation
+- **[System Flowcharts](docs/FLOWCHART.md)**: Comprehensive visual flowcharts showing the complete automation workflow, data processing phases, error handling, and system architecture
+- **[Process Definition Document](docs/PDD_COMPREHENSIVE.md)**: Complete PDD with business context, technical specifications, performance requirements, and implementation guidelines
+- **[Original PDD](docs/PDD.md)**: Initial process definition document
+
+### 🔧 Technical Documentation
+The system includes comprehensive technical documentation covering:
+- **Architecture Diagrams**: System component relationships and data flow
+- **API Documentation**: Function signatures and usage examples
+- **Configuration Guides**: Setup and deployment instructions
+- **Testing Documentation**: Test strategy and coverage reports
+
 ## 📚 API Documentation
 
 ### Core Classes (Enterprise Version)
@@ -378,6 +392,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **📖 Repository**: [GitHub Repository](https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2)
 - **🐛 Bug Reports**: [GitHub Issues](https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2/issues)
 - **💬 Discussions**: [GitHub Discussions](https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2/discussions)
+- **📊 Process Flowcharts**: [System Flowcharts](docs/FLOWCHART.md)
+- **📋 Process Definition**: [Comprehensive PDD](docs/PDD_COMPREHENSIVE.md)
 - **🎓 Course**: Concordia University - Robotic Process Automation
 - **👨‍💻 Author**: Hassan Naeem
 
