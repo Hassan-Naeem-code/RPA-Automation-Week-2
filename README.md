@@ -1,7 +1,7 @@
 # 🚀 Invoice Processing Automation System
 
 [![CI/CD Pipeline](https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2/workflows/Invoice%20Automation%20CI/CD/badge.svg)](https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2/actions)
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://python.org)
+[![Python Version](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📋 Overview
@@ -85,7 +85,7 @@ The system creates comprehensive Excel reports with multiple analysis sheets:
 
 ### 1. System Requirements
 
-- **Python**: 3.8 or higher
+- **Python**: 3.9 or higher
 - **Memory**: 4GB RAM minimum (8GB recommended for large datasets)
 - **Storage**: 1GB disk space for data processing
 - **OS**: Windows, macOS, or Linux
