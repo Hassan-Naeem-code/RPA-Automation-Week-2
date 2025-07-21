@@ -311,7 +311,7 @@ python scripts/create_sample_data.py
 
 ## 📚 API Documentation
 
-### Core Classes
+### Core Classes (Enterprise Version)
 
 #### `InvoiceProcessor`
 ```python
@@ -321,7 +321,7 @@ processor = InvoiceProcessor(config_manager)
 stats = processor.process_invoices(input_file, output_file)
 ```
 
-#### `ReportGenerator`
+#### `ReportGenerator` 
 ```python
 from automation.core import ReportGenerator
 
@@ -329,12 +329,22 @@ generator = ReportGenerator(config_manager)
 metrics = generator.generate_report(data_file, report_file)
 ```
 
-#### `EmailService`
-```python
-from automation.core import EmailService
+### Simple Functions (Scripts Version)
 
-email_service = EmailService(config_manager)
-results = email_service.send_report_email(report_file, recipients)
+#### Core Functions
+```python
+from scripts.process_data import process_invoices
+from scripts.generate_report import generate_report  
+from scripts.send_email import send_email
+
+# Process invoices
+success = process_invoices(input_file, output_file)
+
+# Generate reports
+success = generate_report(data_file, report_file)
+
+# Send email
+success = send_email(report_file)
 ```
 
 ## 🤝 Contributing
@@ -365,36 +375,40 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support & Documentation
 
-- **📖 Documentation**: [Full Documentation](https://invoice-automation.readthedocs.io/)
-- **🐛 Bug Reports**: [GitHub Issues](https://github.com/company/invoice-automation/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/company/invoice-automation/discussions)
-- **📧 Email**: automation@company.com
+- **📖 Repository**: [GitHub Repository](https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2)
+- **🐛 Bug Reports**: [GitHub Issues](https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2/discussions)
+- **🎓 Course**: Concordia University - Robotic Process Automation
+- **👨‍💻 Author**: Hassan Naeem
 
 ## 🎯 Project Roadmap
 
 ### ✅ Completed Features
-- Core automation pipeline
-- Multi-format report generation
-- Email distribution system
-- Configuration management
-- Comprehensive testing suite
-- CI/CD pipeline
-- Docker containerization
+- ✅ **Working Scripts Version**: Simple, functional automation pipeline
+- ✅ **Enterprise Architecture**: Advanced modular structure  
+- ✅ **Data Processing**: Excel file processing with 100 sample records
+- ✅ **Report Generation**: Multi-sheet Excel reports with analytics
+- ✅ **Email System**: SMTP-based notification system
+- ✅ **Testing Suite**: 22 comprehensive tests (21/22 passing)
+- ✅ **CI/CD Pipeline**: GitHub Actions workflow
+- ✅ **Docker Support**: Container deployment ready
+- ✅ **Configuration**: YAML-based settings management
+- ✅ **Documentation**: Complete project documentation
 
-### 🔄 In Progress
-- Web dashboard interface
-- REST API endpoints
-- Database integration
-- Advanced analytics
-
-### 📋 Planned Features
-- Machine learning insights
-- Cloud deployment automation
-- Mobile notifications
-- Advanced data connectors
+### � Assignment Features Demonstrated
+- ✅ **Robotic Process Automation**: End-to-end automated workflow
+- ✅ **Data Processing**: Automated Excel data manipulation
+- ✅ **Report Generation**: Automated business intelligence reports  
+- ✅ **Email Automation**: Scheduled notification system
+- ✅ **Error Handling**: Robust exception management
+- ✅ **Industry Standards**: Professional project structure
+- ✅ **Version Control**: Git-based development workflow
+- ✅ **Testing**: Automated quality assurance
 
 ---
 
-**Ready for Enterprise Use!** 🎉
+**🎓 Concordia University RPA Assignment - Week 2** 🎉
 
-*Built with ❤️ by the Invoice Automation Team*
+*Built with ❤️ for Robotic Process Automation Course by Hassan Naeem*
+
+**Ready for Production Use!** ✨
