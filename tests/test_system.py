@@ -106,9 +106,9 @@ class TestProjectStructure:
     """Test the overall project structure."""
     
     def test_enterprise_structure_exists(self):
-        """Test that enterprise structure directories exist."""
+        """Test that project structure directories exist."""
         expected_dirs = [
-            'src',
+            'scripts',
             'config', 
             'templates',
             'tests',
@@ -118,14 +118,24 @@ class TestProjectStructure:
         
         for dirname in expected_dirs:
             dir_path = Path(dirname)
-            assert dir_path.exists(), f"Enterprise directory {dirname} should exist"
+            assert dir_path.exists(), f"Project directory {dirname} should exist"
     
-    def test_src_structure(self):
-        """Test the src directory structure."""
-        src_dir = Path('src')
-        if src_dir.exists():
-            automation_dir = src_dir / 'automation'
-            assert automation_dir.exists(), "Automation package should exist in src"
+    def test_scripts_structure(self):
+        """Test the scripts directory structure."""
+        scripts_dir = Path('scripts')
+        assert scripts_dir.exists(), "Scripts directory should exist"
+        
+        expected_files = [
+            'main.py',
+            'process_data.py',
+            'generate_report.py',
+            'send_email.py',
+            'create_sample_data.py'
+        ]
+        
+        for filename in expected_files:
+            file_path = scripts_dir / filename
+            assert file_path.exists(), f"Script file {filename} should exist in scripts directory"
     
     def test_documentation_exists(self):
         """Test that documentation files exist."""
