@@ -1,13 +1,12 @@
 # 🚀 Invoice Processing Automation System
 
-[![CI/CD Pipeline](https://github.com/company/invoice-automation/workflows/CI-CD/badge.svg)](https://github.com/company/invoice-automation/actions)
-[![Code Coverage](https://codecov.io/gh/company/invoice-automation/branch/main/graph/badge.svg)](https://codecov.io/gh/company/invoice-automation)
+[![CI/CD Pipeline](https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2/workflows/Invoice%20Automation%20CI/CD/badge.svg)](https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2/actions)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📋 Overview
 
-A comprehensive, enterprise-grade invoice processing automation system built with Python. This system automates the entire invoice lifecycle from data ingestion to report generation and distribution, designed with scalability, reliability, and maintainability in mind.
+A comprehensive invoice processing automation system built with Python for Concordia University's Robotic Process Automation course. This system automates the entire invoice lifecycle from data ingestion to report generation and email distribution, demonstrating modern RPA principles and enterprise-grade architecture.
 
 ## ✨ Key Features
 
@@ -32,19 +31,35 @@ A comprehensive, enterprise-grade invoice processing automation system built wit
 ### System Components
 
 ```
-src/
+scripts/                           # Working automation scripts
+├── main.py                        # Main orchestrator and workflow manager
+├── process_data.py               # Invoice data processing engine
+├── generate_report.py            # Excel report generation
+├── send_email.py                 # Email automation service
+└── create_sample_data.py         # Test data generation
+
+src/                              # Enterprise architecture (alternative structure)
 ├── automation/
 │   ├── core/
-│   │   ├── data_processor.py      # Invoice data processing engine
-│   │   ├── report_generator.py    # Multi-format report generation
-│   │   └── email_service.py       # Email distribution service
+│   │   ├── data_processor.py     # Advanced data processing
+│   │   ├── report_generator.py   # Multi-format report generation  
+│   │   └── email_service.py      # Email distribution service
 │   ├── utils/
-│   │   ├── config.py             # Configuration management
-│   │   ├── logger.py             # Logging infrastructure
-│   │   └── validators.py         # Data validation utilities
-│   └── exceptions.py             # Custom exception definitions
-├── main.py                       # Application orchestrator
-└── __init__.py
+│   │   ├── config.py            # Configuration management
+│   │   ├── logger.py            # Logging infrastructure
+│   │   └── validators.py        # Data validation utilities
+│   └── exceptions.py            # Custom exception definitions
+└── main.py                      # Enterprise application orchestrator
+
+config/
+├── settings.yaml                # Application configuration
+└── .env.example                 # Environment variables template
+
+tests/                           # Comprehensive test suite
+├── test_system.py              # End-to-end system tests
+├── test_unit.py                # Unit tests for core functions
+└── unit/
+    └── test_automation.py       # Component integration tests
 ```
 
 ### Data Flow Architecture
@@ -79,7 +94,7 @@ The system creates comprehensive Excel reports with multiple analysis sheets:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/Hassan-Naeem-code/RPA-Automation-Week-2.git
 cd automation_project
 
 # Create virtual environment
@@ -113,9 +128,21 @@ pip install -r requirements.txt
 
 ### 4. Usage
 
-#### Basic Usage
+#### Basic Usage (Scripts Version - Recommended)
 ```bash
-# Process invoice data
+# Process invoice data (simple approach)
+python scripts/main.py
+
+# The scripts version automatically:
+# - Processes data/invoice_data.xlsx
+# - Generates data/processed_invoice_data.xlsx  
+# - Creates data/report.xlsx with summary
+# - Attempts email notification (if configured)
+```
+
+#### Enterprise Usage (Advanced)
+```bash
+# Process invoice data with enterprise features
 python src/main.py data/invoice_data.xlsx
 
 # With custom output directory
@@ -130,11 +157,14 @@ python src/main.py data/invoice_data.xlsx --debug
 
 #### Advanced Usage
 ```bash
-# Use custom configuration
+# Use custom configuration (enterprise version)
 python src/main.py data/invoice_data.xlsx --config config/production.yaml
 
 # Multiple email recipients
 python src/main.py data/invoice_data.xlsx --email user1@company.com user2@company.com
+
+# Create sample data for testing
+python scripts/create_sample_data.py
 
 # Use sample data for testing
 python src/main.py --sample
@@ -144,13 +174,15 @@ python src/main.py --sample
 
 Your input Excel file should contain these columns:
 
-| Column | Type | Description | Required |
-|--------|------|-------------|----------|
-| `InvoiceID` | String | Unique identifier (format: INVnnnnnn) | ✅ |
-| `Client` | String | Client/customer name | ✅ |
-| `Amount` | Number | Invoice amount (positive values) | ✅ |
-| `Status` | String | Payment status (PAID/UNPAID/PENDING/OVERDUE) | ✅ |
-| `Date` | Date | Invoice date | ✅ |
+| Column | Type | Description | Required | Example |
+|--------|------|-------------|----------|---------|
+| `InvoiceID` | String | Unique identifier | ✅ | INV000001 |
+| `Client` | String | Client/customer name | ✅ | ABC Corp |
+| `Amount` | Number | Invoice amount (positive values) | ✅ | 1500.75 |
+| `Status` | String | PAID/UNPAID/PENDING/OVERDUE | ✅ | PAID |
+| `Date` | Date | Invoice date | ✅ | 2025-01-15 |
+
+The system includes 100 sample invoice records for testing and demonstration.
 
 ## 🧪 Testing
 
@@ -163,8 +195,11 @@ pip install -r requirements-dev.txt
 # Run all tests
 pytest
 
-# Run with coverage
+# Run with coverage (enterprise version)
 pytest --cov=src/automation --cov-report=html
+
+# Run scripts version tests  
+pytest --cov=scripts --cov-report=html
 
 # Run specific test categories
 pytest tests/unit/          # Unit tests only
@@ -186,15 +221,15 @@ The project maintains high test coverage with comprehensive:
 
 ```bash
 # Code formatting
-black src/ tests/
+black scripts/ src/ tests/
 
-# Import sorting
-isort src/ tests/
+# Import sorting  
+isort scripts/ src/ tests/
 
 # Linting
-flake8 src/ tests/
+flake8 scripts/ src/ tests/
 
-# Type checking
+# Type checking (enterprise version)
 mypy src/
 ```
 
@@ -225,14 +260,17 @@ docker run -e EMAIL_ENABLED=true -e SMTP_SERVER=smtp.gmail.com invoice-automatio
 ### Health Checks
 
 ```bash
-# System health check
+# System health check (enterprise version)
 python src/main.py --health-check
 
-# Configuration validation
+# Configuration validation  
 python src/main.py --validate-config
 
-# Email service test
-python src/main.py --test-email
+# Test automation workflow (scripts version)
+python scripts/main.py
+
+# Create sample data
+python scripts/create_sample_data.py
 ```
 
 ## 🔒 Security Features
