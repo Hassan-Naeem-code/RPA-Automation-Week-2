@@ -1,0 +1,127 @@
+# Application Configuration
+app:
+  name: "Invoice Processing Automation"
+  version: "1.0.0"
+  debug: false
+  environment: "production"
+
+# Data Processing Configuration
+data:
+  input_directory: "./data"
+  output_directory: "./data"
+  backup_enabled: true
+  backup_directory: "./data/backups"
+  quality_threshold: 0.95
+  batch_size: 1000
+  
+  # File format settings
+  input_formats: ["xlsx", "xls", "csv"]
+  output_format: "xlsx"
+  
+  # Data validation settings
+  validation:
+    strict_mode: false
+    required_columns: ["InvoiceID", "Client", "Amount", "Status", "Date"]
+    max_amount: 1000000.0
+    min_amount: 0.01
+
+# Email Configuration
+email:
+  enabled: false
+  smtp_server: "smtp.gmail.com"
+  smtp_port: 587
+  use_tls: true
+  username: ""
+  password: ""
+  from_email: ""
+  from_name: "Invoice Automation System"
+  
+  # Email templates
+  templates:
+    report_subject: "Invoice Processing Report - {date}"
+    success_template: "email_template.html"
+    error_template: "error_template.html"
+  
+  # Retry settings
+  retry_attempts: 3
+  retry_delay: 5
+
+# Report Generation Configuration
+reports:
+  format: "xlsx"
+  include_charts: true
+  include_metadata: true
+  compression: false
+  
+  # Report sheets configuration
+  sheets:
+    executive_summary: true
+    client_analysis: true
+    aging_analysis: true
+    status_breakdown: true
+    quality_metrics: true
+    time_series: true
+    raw_data: true
+  
+  # Styling options
+  styling:
+    header_color: "#4472C4"
+    highlight_color: "#FFE699"
+    font_name: "Calibri"
+    font_size: 11
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # File logging
+  file_enabled: true
+  file_path: "./logs/automation.log"
+  
+  # Log rotation
+  rotation:
+    enabled: true
+    max_size: "10MB"
+    backup_count: 5
+  
+  # Structured logging
+  structured: true
+  json_format: false
+
+# Performance Configuration
+performance:
+  max_memory_usage: "1GB"
+  timeout_seconds: 300
+  parallel_processing: true
+  max_workers: 4
+
+# Security Configuration
+security:
+  encrypt_sensitive_data: false
+  mask_client_names: false
+  audit_trail: true
+  
+  # Data retention
+  retention:
+    processed_data_days: 90
+    log_files_days: 30
+    reports_days: 365
+
+# Monitoring Configuration
+monitoring:
+  enabled: true
+  metrics_collection: true
+  health_checks: true
+  
+  # Alerting
+  alerts:
+    quality_threshold_breach: true
+    processing_errors: true
+    email_failures: true
+  
+  # Dashboard
+  dashboard:
+    enabled: false
+    port: 8080
+    refresh_interval: 30
